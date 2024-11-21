@@ -17,6 +17,7 @@ all: ${NAME}
 	${CC} ${CFLAGS} -c $<
 	$(AR) $(NAME) $@
 
+
 clean :
 	rm -f ${OBSRC}
 

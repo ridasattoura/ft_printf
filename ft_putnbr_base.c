@@ -20,11 +20,20 @@ static int	ft_printr(unsigned int num, char *base, unsigned int len)
 	return count ;
 }
 
-int	ft_putnbr_base(unsigned int nbr, char *base)
+int	ft_putnbr_base(unsigned int nbr, char *base,t_flag *flag)
 {
 	unsigned int	i;
+	int count ;
 
 	i = 16;
-	return (ft_printr(nbr, base, i));
+	count = 0;
+	if(flag->hash == 1)
+	{
+		if(base[10] == 'a')
+			count +=ft_putstr("0x");
+		else
+			count +=ft_putstr("0X");
+	}
+	return (count + ft_printr(nbr, base, i));
 
 }

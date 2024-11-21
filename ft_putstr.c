@@ -2,17 +2,17 @@
 
 int	ft_putstr(char *str)
 {
-	int	i;
+	int	count;
 
-	i = 0;
+	count = 0;
 	if (!str)
 	{
 		return ft_putstr("(null)");
 	}
-	while (str[i] != '\0')
+	while (*str != '\0')
 	{
-		ft_putchar(str[i]);
-		i++;
+		count +=ft_putchar(*str);
+		str++;
 	}
-	return i;
+	return count;
 }

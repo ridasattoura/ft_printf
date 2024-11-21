@@ -27,9 +27,9 @@ int	ft_putnbr_base(unsigned int nbr, char *base,t_flag *flag)
 
 	i = 16;
 	count = 0;
-	if(flag->hash == 1)
+	if(flag->hash == 1 && nbr > 0)
 	{
-		if(base[10] == 'a')
+		if(base[10] == 'a' )
 			count +=ft_putstr("0x");
 		else
 			count +=ft_putstr("0X");

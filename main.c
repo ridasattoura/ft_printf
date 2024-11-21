@@ -1,12 +1,12 @@
 #include "ft_printf.h"
+#include <limits.h> // Include the <limits.h> header file
 #include <stdio.h>
 int main()
 {
-
-	printf("%i",printf("|%    d|",5));
-	// printf("|%+d|",-1);
-	// char *s = "0123456789abcdef";
-	// printf("|%c|",s[10]);
-	// write(2,&i,1);
-	
+	// printf("|%0d|\n",4);
+	printf("%i\n",ft_printf(" |%05u| ", -15));
+	printf("%i\n",printf(" |%05u| ", -15));
+	// printf(" |%05u| ", -15);
+	// printf("|%0d|\n",4);
+	// printf("|%0d|\n",4);
 }

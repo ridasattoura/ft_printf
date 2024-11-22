@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: risattou <risattou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ader <ader@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:56:49 by risattou          #+#    #+#             */
-/*   Updated: 2024/11/21 23:51:18 by risattou         ###   ########.fr       */
+/*   Updated: 2024/11/22 04:35:35 by ader             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ typedef struct s_flags{
     
 } t_flag;
 
-int ft_countnbr(int nbr);
+int ft_countnbr(unsigned int nbr);
+int ft_countnbr_base(unsigned int nbr);
 int	ft_atoi(const char **str);
 int 	ft_putchar(char c);
 int	ft_puthex(size_t nbr, char *base);
-int	ft_putnbr_base(unsigned int nbr, char *base,t_flag *flag);
-int	ft_putnbr(int nb,t_flag *flag, int nbr);
+int	ft_putnbr_base(unsigned int nbr, char *base,t_flag *flag,int nb);
+int	ft_putnbr(int nb,t_flag *flag, int nbr,int sign);
 int	    ft_putstr(char *str);
 int	ft_putunbr(unsigned int nb,t_flag *flag,int nbr);
 int ft_printf(const char *str, ...);

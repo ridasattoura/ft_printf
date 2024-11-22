@@ -21,7 +21,13 @@ static int	ft_printr(size_t num, char *base)
 	return count ;
 }
 
-int	ft_puthex(size_t nbr, char *base)
+int	ft_puthex(size_t nbr, char *base,t_flag *flag,int number)
 {
-	return (ft_printr(nbr, base));
+	int count;
+
+	count = 0;
+	count += ft_printr(nbr, base);
+	while(flag && flag->dash == 1 && number > count)
+		count+= ft_putchar(' ',0,0);
+	return (count);
 }

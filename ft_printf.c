@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ader <ader@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: risattou <risattou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:46:22 by risattou          #+#    #+#             */
-/*   Updated: 2024/11/22 07:10:30 by ader             ###   ########.fr       */
+/*   Updated: 2024/11/22 16:52:59 by risattou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int ft_printf(const char *str, ...)
     if(!flag)
         return -1;
     int count = 0;
+    int putnbr = 0;
     int number = 0;
 
     va_start(args, str);
@@ -68,7 +69,12 @@ int ft_printf(const char *str, ...)
             if(*str >= '0' && *str <= '9')
                 number = ft_atoi(&str);
             if(*str == 'd' || *str == 'i')
-                count +=ft_putnbr(va_arg(args,int),flag,number,1);
+            {
+                putnbr =ft_putnbr(va_arg(args,int),flag,number,1);
+                while(flag && (flag->dash == 1)&& number > putnbr)
+			        putnbr+= ft_putchar(' ',0,0);
+                count += putnbr;
+            }
             else if(*str == 'c')
                 count +=ft_putchar(va_arg(args,int),flag,number);
             else if(*str == 's')
@@ -82,7 +88,7 @@ int ft_printf(const char *str, ...)
             else if(*str == 'p')
             {
                 count +=ft_putstr("0x",0,0);
-                count +=ft_puthex(va_arg(args, size_t),"0123456789abcdef");
+                count +=ft_puthex(va_arg(args, size_t),"0123456789abcdef",flag,number-2);
             }
             else if(*str == '%')
                 count +=ft_putchar(*str,0,0);

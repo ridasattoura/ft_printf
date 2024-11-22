@@ -6,7 +6,7 @@
 /*   By: risattou <risattou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:46:22 by risattou          #+#    #+#             */
-/*   Updated: 2024/11/22 16:52:59 by risattou         ###   ########.fr       */
+/*   Updated: 2024/11/22 21:28:42 by risattou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,12 @@ int ft_printf(const char *str, ...)
         return -1;
     int count = 0;
     int putnbr = 0;
-    int number = 0;
+    int number;
 
     va_start(args, str);
     while(*str)
     {
+        number = 0;
         if (*str == '%' )
         {
             str++;
@@ -80,11 +81,26 @@ int ft_printf(const char *str, ...)
             else if(*str == 's')
                 count +=ft_putstr(va_arg(args,char *),flag,number);
             else if(*str == 'u')
-                count +=ft_putunbr(va_arg(args,unsigned int),flag,number);
+            {
+                putnbr =ft_putunbr(va_arg(args,unsigned int),flag,number);
+                while(flag && (flag->dash == 1)&& number > putnbr)
+			        putnbr+= ft_putchar(' ',0,0);
+                count += putnbr;
+            }
             else if(*str == 'x')
-                count +=ft_putnbr_base(va_arg(args,int),"0123456789abcdef",flag,number);
+            {
+                putnbr =ft_putnbr_base(va_arg(args,int),"0123456789abcdef",flag,number);;
+                while(flag && (flag->dash == 1)&& number > putnbr)
+			        putnbr+= ft_putchar(' ',0,0);
+                count += putnbr;
+            }        
             else if(*str == 'X')
-                count +=ft_putnbr_base(va_arg(args, int),"0123456789ABCDEF",flag,number);
+            {
+                putnbr =ft_putnbr_base(va_arg(args, int),"0123456789ABCDEF",flag,number);
+                while(flag && (flag->dash == 1)&& number > putnbr)
+			        putnbr+= ft_putchar(' ',0,0);
+                count += putnbr;
+            }
             else if(*str == 'p')
             {
                 count +=ft_putstr("0x",0,0);

@@ -1,6 +1,7 @@
 #include "ft_printf.h"
 #include <limits.h> // Include the <limits.h> header file
 #include <stdio.h>
+
 int main()
 {
 // ft_printf("|%-3d|", 1);
@@ -8,7 +9,12 @@ int main()
 // ft_printf("|%-3d|", 15);
 // ft_printf("|%-4d|", 16);
 // ft_printf("|%-5d|", 17);
-printf("|%-4d|", -14);
+// printf("|%-4d|", -14);
+// printf("|%2c|", 'c');
+// printf("|%5c|", 'c'));
+printf("%i\n",printf("%5c, %5c, %5c", '5', 'x', '\n'));
+printf("%i",ft_printf("%5c, %5c, %5c", '5', 'x', '\n'));
+// printf("|%5c|", 'c'));
 // ft_printf("|%-5d|", -15);
 // ft_printf("|%-6d|", -16);
 // ft_printf("|%-11d|", LONG_MAX);

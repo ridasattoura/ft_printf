@@ -4,16 +4,21 @@
 
 int main()
 {
-// ft_printf("|%-3d|", 1);
+printf("|%.2d|", 1);
 // ft_printf("|%-4d|", 9);
 // ft_printf("|%-3d|", 15);
-// ft_printf("|%-4d|", 16);
-// ft_printf("|%-5d|", 17);
+// ft_printf("|%1s|", "");
+// printf("|%1s|", "");
+// ft_printf("|%10s|", (char *)NULL);
+// printf("|%10s|", (char *)NULL);
+// printf("%5s, %5s, %5s, %5s", (char *)NULL, "", "test", "joihwhhgsdkhksdgsdg\t\v\n\r\f\a");
 // printf("|%-4d|", -14);
-// printf("|%2c|", 'c');
-// printf("|%5c|", 'c'));
-printf("%i\n",printf("%5c, %5c, %5c", '5', 'x', '\n'));
-printf("%i",ft_printf("%5c, %5c, %5c", '5', 'x', '\n'));
+// printf("|%10s|", "01234");
+// ft_printf("|%10s|", "01234");
+// ft_printf("%1s, %1s, %1s, %1s", (char *)NULL, "", "test", "joihwhhgsdkhksdgsdg\t\v\r\f\a"); 
+// printf("%1s, %1s, %1s, %1s", (char *)NULL, "", "test", "joihwhhgsdkhksdgsdg\t\v\r\f\a");
+// printf("%i\n",printf("%5c, %5c, %5c", '5', 'x', '\n'));
+// printf("%i",ft_printf("%5c, %5c, %5c", '5', 'x', '\n'));
 // printf("|%5c|", 'c'));
 // ft_printf("|%-5d|", -15);
 // ft_printf("|%-6d|", -16);

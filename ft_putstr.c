@@ -1,5 +1,4 @@
 #include "ft_printf.h"
-#include <stdio.h>
 
 static int	ft_strlen(char *str)
 {
@@ -23,7 +22,7 @@ int	ft_putstr(char *str,t_flag *flag)
 	}
 	else if(flag && flag->full_stop == 1)
 	{
-		while(*str != '\0' && count < flag->firstnbr)
+		while(*str != '\0' && count < flag->secondnbr)
 		{
 			count +=ft_putchar(*str,0);
 			str++;
@@ -33,14 +32,14 @@ int	ft_putstr(char *str,t_flag *flag)
 	{
 		if(!(flag && flag->dash == 1))
 			sign = ft_strlen(str) ;
-		while( sign > -1 && count+sign < flag->firstnbr)
+		while( flag && sign > -1 && count+sign < flag->firstnbr)
 			count+= write(1," ",1);
 		while (*str != '\0' )
 		{
 			count +=ft_putchar(*str,0);
 				str++;
 		}
-		while(flag && flag->dash == 1 && count < flag->firstnbr )
+		while(flag && flag->dash == 1 && count < flag->secondnbr )
 			count +=ft_putchar(' ',0);
 	}
 	return count;

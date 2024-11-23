@@ -27,7 +27,8 @@ int	ft_puthex(size_t nbr, char *base,t_flag *flag)
 
 	count = 0;
 	count += ft_printr(nbr, base);
-	while(flag && flag->dash == 1 && flag->firstnbr-2 > count)
+	while(flag && flag->dash == 1 && flag->secondnbr-2 > count)
 		count+= ft_putchar(' ',0);
 	return (count);
 }
+

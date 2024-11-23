@@ -32,7 +32,7 @@ int	ft_putnbr_base(unsigned int nbr, char *base,t_flag *flag)
 		else
 			count +=ft_putstr("0X",0);
 	}
-	while(flag &&(flag->zero == 1 || flag->full_stop == 1) && flag->firstnbr > (count+ft_countnbr_base(nbr)))
+	while(flag &&(flag->zero == 1 || flag->full_stop == 1) && flag->secondnbr > (count+ft_countnbr_base(nbr)))
 		count += ft_putchar('0',0);
 	return (count + ft_printr(nbr, base));
 

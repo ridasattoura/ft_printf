@@ -9,7 +9,7 @@ int	ft_putunbr(unsigned int nb,t_flag *flag)
 		count +=ft_putchar('+',0);
 	else if(flag && flag->space == 1 )
 		count +=ft_putchar(' ',0);
-	while(flag &&(flag->zero == 1 || flag->full_stop == 1) && flag->firstnbr > count+ft_countnbr(nb))
+	while(flag &&(flag->zero == 1 || flag->full_stop == 1) && flag->secondnbr > count+ft_countnbr(nb))
 		count+= ft_putchar('0',0);
     if (nb > 9)
 	{

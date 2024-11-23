@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ader <ader@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: risattou <risattou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:56:49 by risattou          #+#    #+#             */
-/*   Updated: 2024/11/23 00:48:07 by ader             ###   ########.fr       */
+/*   Updated: 2024/11/23 19:37:49 by risattou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_flags{
     
 } t_flag;
 
-int ft_countnbr(unsigned int nbr);
+int ft_countnbr(long nbr);
 
 int ft_countnbr_base(unsigned int nbr);
 

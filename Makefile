@@ -1,30 +1,41 @@
-SRC =  ft_puthex.c ft_putstr.c ft_putchar.c  ft_putnbr.c \
-		ft_putunbr.c ft_printf.c ft_putnbr_base.c ft_countnbr.c ft_atoi.c
-SRCB =  ft_puthex.c ft_putstr.c ft_putchar.c  ft_putnbr.c \
-		ft_putunbr.c ft_printf.c ft_putnbr_base.c ft_countnbr.c ft_atoi.c
-CC = cc 
-CFLAGS = -Wall -Wextra -Werror
-HEADER = ft_printf.h
-OBSRC = ${SRC:.c=.o}
-OBSRCB = ${SRCB:.c=.o}
 NAME = libftprintf.a
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 
+SRC =	ft_printf.c ft_countnbr.c \
+	ft_printnegativ.c  ft_printptr.c\
+	ft_printstring.c \
+	ft_choose.c \
+	ft_printnumber.c \
+	ft_putchar.c ft_helpnumber.c
+SRCB =	ft_printf.c ft_countnbr.c \
+	ft_printnegativ.c  ft_printptr.c\
+	ft_printstring.c \
+	ft_choose.c \
+	ft_printnumber.c \
+	ft_putchar.c ft_helpnumber.c
 
-${NAME}: ${OBSRC} 
+OBJ = $(SRC:.c=.o)
+OBJB = $(SRCB:.c=.o)
 
-all: ${NAME} ${OBSRCB} 
+${NAME}: ${OBJ} 
 
-bonus : ${OBSRCB} 
+all: $(NAME) bonus
 
-%.o: %.c ${HEADER}
-	${CC} ${CFLAGS} -c $<
+bonus:  $(OBJB)
+
+
+%.o: %.c ft_printf.h
+	$(CC) $(CFLAGS) -c $< 
 	$(AR) $(NAME) $@
 
+clean:
+	rm -f $(OBJ) $(OBJB)
 
-clean :
-	rm -f ${OBSRC}
+fclean: clean
+	rm -f $(NAME)
 
-fclean : clean
-	rm -f ${NAME}
-re : fclean all 
+re: fclean all
+
+.PHONY: clean 
